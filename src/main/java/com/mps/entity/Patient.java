@@ -3,7 +3,7 @@ package com.mps.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Entity //for entity class
+@Entity
 @Table(name = "patient_tab")
 @Data //lombok
 public class Patient {
