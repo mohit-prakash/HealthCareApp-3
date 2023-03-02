@@ -1,0 +1,160 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Patient Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card-header bg-primary text-white text-center">
+            <h1>Patient Register</h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/pat/save}" method="post">
+            <!-- row1 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patFirstName">First Name</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patFirstName" id="patFirstName" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patFirstNameError"></span>
+                </div>
+            </div>
+            <!-- row2 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patLastName">Last Name</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patLastName" id="patLastName" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patLastNameError"></span>
+                </div>
+            </div>
+            <!-- row3 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patGender">Gender</label>
+                </div>
+                <!-- // TODO: Change Gender to radio button  -->
+                <div class="col-5">
+                    <input type="text" name="patGender" id="patGender" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patGenderError"></span>
+                </div>
+            </div>
+            <!-- row4 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patPhone">Mobile</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patPhone" id="patPhone" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patPhoneError"></span>
+                </div>
+            </div>
+            <!-- row5 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patDob">DOB</label>
+                </div>
+                <!-- // TODO: Change DOB from text to Date format  -->
+                <div class="col-5">
+                    <input type="text" name="patDob" id="patDob" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patDobError"></span>
+                </div>
+            </div>
+            <!-- row6 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patMaritalStatus">Marital Status</label>
+                </div>
+                <!-- // TODO: Change Marital Status from text to DropDown -->
+                <div class="col-5">
+                    <input type="text" name="patMaritalStatus" id="patMaritalStatus" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patMaritalStatusError"></span>
+                </div>
+            </div>
+            <!-- row7 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patEmailId">Email Id</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patEmailId" id="patEmailId" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patEmailIdError"></span>
+                </div>
+            </div>
+            <!-- row8 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patPresentAddress">Present Address</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patPresentAddress" id="patPresentAddress" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patPresentAddressError"></span>
+                </div>
+            </div>
+            <!-- row9 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patCommunicationAddress">Communication Address</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patCommunicationAddress" id="patCommunicationAddress" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patCommunicationAddressError"></span>
+                </div>
+            </div>
+            <!-- row10 -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patPastMedicalHistory">Past Medical History</label>
+                </div>
+                <!-- // TODO: Change PastMedicalHistory from text to Checkbox -->
+                <div class="col-5">
+                    <input type="text" name="patPastMedicalHistory" id="patPastMedicalHistory" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patPastMedicalHistoryError"></span>
+                </div>
+            </div>
+            <!-- row11 -->
+            <!-- // TODO: will only appear if other is clicked -->
+            <div class="row">
+                <div class="col-3">
+                    <label for="patOtherDetails">Other Details</label>
+                </div>
+                <div class="col-5">
+                    <input type="text" name="patOtherDetails" id="patOtherDetails" class="form-control">
+                </div>
+                <div class="col-7">
+                    <span id="patOtherDetailsError"></span>
+                </div>
+            </div>
+                <button type="submit" class="byn btn-success">Create</button>
+           </form>
+           </div> 
+        <div class="card-footer" th:if="${message}!=null">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</body>
+</html>
