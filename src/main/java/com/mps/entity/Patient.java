@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "patient_tab")
-@Data //lombok test3
+@Data //lombok test4
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
