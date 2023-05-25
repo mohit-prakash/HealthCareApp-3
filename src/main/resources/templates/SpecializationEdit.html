@@ -11,7 +11,7 @@
             <h1>Update Specialization</h1>
         </div>
         <div class="card-body">
-            <form th:action="@{/spec/update}" method="post" th:object="${specialization}">
+            <form th:action="@{/spec/update}" method="post" id="specReg" th:object="${specialization}">
                 <div class="row">
                     <div class="col-3">
                         <label for="specId">Id</label>
@@ -60,5 +60,6 @@
             </form>
         </div>
     </div>
+    <script th:src="@{/jsForValidations/specValidation.js}"></script>
 </body>
 </html>

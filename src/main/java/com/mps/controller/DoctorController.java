@@ -3,6 +3,7 @@ package com.mps.controller;
 import com.mps.entity.Doctor;
 import com.mps.exception.DoctorNotFoundException;
 import com.mps.service.IDoctorService;
+import com.mps.service.ISpecialization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +17,15 @@ import java.util.List;
 public class DoctorController {
     @Autowired
     private IDoctorService service;
+    @Autowired
+    private ISpecialization specService;
+    private void dropDownForSpecialization(Model model){
+        model.addAttribute("specializations",specService.getSpecIdAndSpecName());
+    }
     @GetMapping("/add")
     public String registerDoctor(Model model, @RequestParam(name = "message",required = false)String message){
         model.addAttribute("message",message);
+        dropDownForSpecialization(model);
         return "DoctorRegister";
     }
     @PostMapping("/save")
@@ -42,6 +49,7 @@ public class DoctorController {
         try {
             Doctor doctor = service.getDoctorById(docId);
             model.addAttribute("doctor",doctor);
+            dropDownForSpecialization(model);
             return "DoctorEdit";
         }
         catch (DoctorNotFoundException dnfe)

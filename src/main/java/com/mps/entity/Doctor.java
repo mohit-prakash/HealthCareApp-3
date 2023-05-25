@@ -15,8 +15,6 @@ public class Doctor {
     private String docName;
     @Column(name="docEmailId_col")
     private String docEmailId;
-    @Column(name="docSpecialization_col")
-    private String docSpecialization;
     @Column(name="docAddress_col")
     private String docAddress;
     @Column(name="docMobile_col")
@@ -27,4 +25,7 @@ public class Doctor {
     private String docNote;
     @Column(name="docPhoto_col")
     private String docPhoto;
+    @ManyToOne
+    @JoinColumn(name = "spec_id_fk_col")
+    private Specialization specialization;
 }
