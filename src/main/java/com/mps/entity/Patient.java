@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -26,7 +26,7 @@ public class Patient {
     @Column(name = "patDob_col")
     @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     @Temporal(TemporalType.DATE)
-    private LocalDate patDob;
+    private Date patDob;
     @Column(name = "patMaritalStatus_col")
     private String patMaritalStatus;
     @Column(name = "patEmailId_col")
