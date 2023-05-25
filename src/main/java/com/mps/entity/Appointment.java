@@ -3,6 +3,8 @@ package com.mps.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "appointment_tab")
 @Data
@@ -11,12 +13,11 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "appId", nullable = false)
     private Long appId;
-    // TODO: Change appDoctor from String to Doctor type
-    @Column(name = "appDoctor_col")
-    private String appDoctor;
-    // TODO: Change appDate from String to Date type
+    @ManyToOne(cascade = {CascadeType.MERGE})
+    @JoinColumn(name = "appDoctor_fk_col")
+    private Doctor appDoctor;
     @Column(name = "appDate_col")
-    private String appDate;
+    private LocalDate appDate;
     @Column(name = "appSlots_col")
     private Integer appSlots;
     @Column(name = "appDetails_col")

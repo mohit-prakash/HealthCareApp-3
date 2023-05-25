@@ -22,7 +22,7 @@
                 </tr>
                 <tr th:each="ob:${appointments}">
                     <td th:text="${ob.appId}"></td>
-                    <td th:text="${ob.appDoctor}"></td>
+                    <td th:text="${ob.appDoctor.docName}"></td>
                     <td th:text="${ob.appDate}"></td>
                     <td th:text="${ob.appSlots}"></td>
                     <td>[[${ob.appFee}]]</td>

@@ -4,10 +4,13 @@ import com.mps.entity.Doctor;
 import com.mps.exception.DoctorNotFoundException;
 import com.mps.repository.DoctorRepository;
 import com.mps.service.IDoctorService;
+import com.mps.util.CollectionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class DoctorServiceImpl implements IDoctorService {
     @Autowired
@@ -35,5 +38,10 @@ public class DoctorServiceImpl implements IDoctorService {
     @Override
     public void deleteDoctorById(Long docId) {
         repo.delete(getDoctorById(docId));
+    }
+
+    @Override
+    public Map<Long, String> getDocIdAndDocName() {
+        return new CollectionUtil().convertObjectArrayToMap(repo.getDocIdAndDocName());
     }
 }

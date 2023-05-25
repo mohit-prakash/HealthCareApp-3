@@ -3,6 +3,7 @@ package com.mps.controller;
 import com.mps.entity.Appointment;
 import com.mps.exception.AppointmentNotFoundException;
 import com.mps.service.IAppointmentService;
+import com.mps.service.IDoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +17,16 @@ import java.util.List;
 public class AppointmentController {
     @Autowired
     private IAppointmentService service;
+    @Autowired
+    private IDoctorService docService;
+
+    private void dropDownForDoctor(Model model){
+        model.addAttribute("doctors",docService.getDocIdAndDocName());
+    }
     @GetMapping("/add")
     public String registerAppointment(Model model, @RequestParam(name = "message",required = false)String message){
         model.addAttribute("message",message);
+        dropDownForDoctor(model);
         return "AppointmentRegister";
     }
     @PostMapping("/save")
@@ -42,6 +50,7 @@ public class AppointmentController {
         try {
             Appointment appointment = service.getAppointmentById(appId);
             model.addAttribute("appointment",appointment);
+            dropDownForDoctor(model);
             return "AppointmentEdit";
         }
         catch (AppointmentNotFoundException anfe)
