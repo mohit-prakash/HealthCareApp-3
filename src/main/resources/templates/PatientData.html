@@ -17,6 +17,7 @@
                     <th>Name</th>
                     <th>Mobile</th>
                     <th>Email</th>
+                    <th>Medical History</th>
                     <!-- // TODO: can add other heading as well -->
                     <th></th>
                 </tr>
@@ -26,6 +27,7 @@
                     <td>[[${ob.patFirstName+' '+ob.patLastName}]]</td>
                     <td th:text="${ob.patPhone}"></td>
                     <td>[[${ob.patEmailId}]]</td>
+                    <td th:text="${ob.patPastMedicalHistory}"></td>
                     <td><a th:href="@{/pat/edit(patId=${ob.patId})}" class="btn btn-warning">Edit</a> | <a th:href="@{/pat/delete(patId=${ob.patId})}" class="btn btn-danger">Delete</a></td>
                 </tr>
             </table>
