@@ -36,13 +36,16 @@
                 </div>
                 <div class="row">
                     <div class="col-3">
-                        <label for="docSpecialization">Specialization</label>
+                        <label for="specialization">Specialization</label>
                     </div>
                     <div class="col-5">
-                        <input type="text" name="docSpecialization" id="docSpecialization" class="form-control">
+                        <select name="specialization.specId" id="specialization" class="form-control">
+                            <option value="">-SELECT-</option>
+                            <option th:each="ob:${specializations}" th:text="${ob.value}" th:value="${ob.key}"></option>
+                        </select>
                     </div>
                     <div class="col-4">
-                        <span id="docSpecializationError"></span>
+                        <span id="specializationError"></span>
                     </div>
                 </div>
                 <div class="row">

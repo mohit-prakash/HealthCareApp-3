@@ -11,7 +11,7 @@
             <h1>Specialization Register</h1>
         </div>
         <div class="card-body">
-            <form th:action="@{/spec/save}" method="post">
+            <form th:action="@{/spec/save}" method="post" id="specReg">
                 <div class="row">
                     <div class="col-3">
                         <label for="specCode">Code</label>
@@ -52,5 +52,6 @@
             <span th:text="${message}"></span>
         </div>
     </div>
+    <script th:src="@{/jsForValidations/specValidation.js}"></script>
 </body>
 </html>

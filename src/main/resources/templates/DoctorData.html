@@ -21,7 +21,7 @@
                 <tr th:each="ob:${doctors}">
                     <td th:text="${ob.docPhoto}"></td>
                     <td th:text="${ob.docName}"></td>
-                    <td th:text="${ob.docSpecialization}"></td>
+                    <td th:text="${ob.specialization.specName}"></td>
                     <td th:text="${ob.docNote}"></td>
                     <td><a th:href="@{/doc/edit(docId=${ob.docId})}" class="btn btn-warning">Edit</a> | <a th:href="@{/doc/delete(docId=${ob.docId})}" class="btn btn-danger"> Delete</a></td>
                 </tr>
