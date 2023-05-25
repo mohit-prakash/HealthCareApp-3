@@ -41,9 +41,9 @@
                 <div class="col-3">
                     <label for="patGender">Gender</label>
                 </div>
-                <!-- // TODO: Change Gender to radio button  -->
                 <div class="col-5">
-                    <input type="text" name="patGender" id="patGender" class="form-control">
+                    <input type="radio" name="patGender" id="patGender1" value="Male"> Male
+                    <input type="radio" name="patGender" id="patGender2" value="Female"> Female
                 </div>
                 <div class="col-7">
                     <span id="patGenderError"></span>
@@ -66,9 +66,8 @@
                 <div class="col-3">
                     <label for="patDob">DOB</label>
                 </div>
-                <!-- // TODO: Change DOB from text to Date format  -->
                 <div class="col-5">
-                    <input type="text" name="patDob" id="patDob" class="form-control">
+                    <input type="date" name="patDob" id="patDob" class="form-control">
                 </div>
                 <div class="col-7">
                     <span id="patDobError"></span>
@@ -79,9 +78,13 @@
                 <div class="col-3">
                     <label for="patMaritalStatus">Marital Status</label>
                 </div>
-                <!-- // TODO: Change Marital Status from text to DropDown -->
                 <div class="col-5">
-                    <input type="text" name="patMaritalStatus" id="patMaritalStatus" class="form-control">
+                    <select name="patMaritalStatus" id="patMaritalStatus" class="form-control">
+                        <option value="">-SELECT-</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Widow">Widow</option>
+                    </select>
                 </div>
                 <div class="col-7">
                     <span id="patMaritalStatusError"></span>
@@ -128,9 +131,14 @@
                 <div class="col-3">
                     <label for="patPastMedicalHistory">Past Medical History</label>
                 </div>
-                <!-- // TODO: Change PastMedicalHistory from text to Checkbox -->
                 <div class="col-5">
-                    <input type="text" name="patPastMedicalHistory" id="patPastMedicalHistory" class="form-control">
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory1" value="Ulcer"> Ulcer
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory2" value="Piles"> Piles
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory3" value="Anaemia"> Anaemia
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory4" value="Asthma"> Asthma
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory5" value="Diabetese"> Diabetese
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory6" value="Cancer"> Cancer
+                    <input type="checkbox" name="patPastMedicalHistory" id="patPastMedicalHistory7" value=""> Other
                 </div>
                 <div class="col-7">
                     <span id="patPastMedicalHistoryError"></span>

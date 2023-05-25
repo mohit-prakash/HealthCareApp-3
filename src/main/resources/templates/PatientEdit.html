@@ -53,9 +53,9 @@
                 <div class="col-3">
                     <label for="patGender">Gender</label>
                 </div>
-                <!-- // TODO: Need to Update after PatientRegister page  -->
                 <div class="col-5">
-                    <input type="text" th:field="*{patGender}" class="form-control">
+                    <input type="radio" th:field="*{patGender}" value="Male"> Male
+                    <input type="radio" th:field="*{patGender}" value="Female"> Female
                 </div>
                 <div class="col-7">
                     <span id="patGenderError"></span>
@@ -78,9 +78,8 @@
                 <div class="col-3">
                     <label for="patDob">DOB</label>
                 </div>
-                <!-- // TODO: Need to Update after PatientRegister page  -->
                 <div class="col-5">
-                    <input type="text" th:field="*{patDob}" class="form-control">
+                    <input type="date" th:field="*{patDob}" class="form-control">
                 </div>
                 <div class="col-7">
                     <span id="patDobError"></span>
@@ -93,7 +92,12 @@
                 </div>
                 <!-- // TODO: Need to Update after PatientRegister page -->
                 <div class="col-5">
-                    <input type="text" th:field="*{patMaritalStatus}" class="form-control">
+                    <select th:field="*{patMaritalStatus}" class="form-control">
+                        <option value="">-SELECT-</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Widow">Widow</option>
+                    </select>
                 </div>
                 <div class="col-7">
                     <span id="patMaritalStatusError"></span>
@@ -140,9 +144,16 @@
                 <div class="col-3">
                     <label for="patPastMedicalHistory">Past Medical History</label>
                 </div>
-                <!-- // TODO: Need to Update after PatientRegister page -->
                 <div class="col-5">
-                    <input type="text" th:field="*{patPastMedicalHistory}" class="form-control">
+                    <div class="col-5">
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value="Ulcer"> Ulcer
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value="Piles"> Piles
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value="Anaemia"> Anaemia
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value="Asthma"> Asthma
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value="Diabetese"> Diabetese
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value="Cancer"> Cancer
+                        <input type="checkbox" th:field="*{patPastMedicalHistory}" value=""> Other
+                    </div>
                 </div>
                 <div class="col-7">
                     <span id="patPastMedicalHistoryError"></span>

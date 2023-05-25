@@ -2,6 +2,10 @@ package com.mps.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "patient_tab")
@@ -19,9 +23,10 @@ public class Patient {
     private String patGender;
     @Column(name = "patPhone_col")
     private String patPhone;
-    //TODO: Change patDob String to Date
     @Column(name = "patDob_col")
-    private String patDob;
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
+    @Temporal(TemporalType.DATE)
+    private LocalDate patDob;
     @Column(name = "patMaritalStatus_col")
     private String patMaritalStatus;
     @Column(name = "patEmailId_col")
@@ -30,9 +35,9 @@ public class Patient {
     private String patPresentAddress;
     @Column(name = "patCommunicationAddress_col")
     private String patCommunicationAddress;
-    //TODO: Change patPastMedicalHistory String to Collection type
-    @Column(name = "patPastMedicalHistory_col")
-    private String patPastMedicalHistory;
+    @ElementCollection
+    @CollectionTable(name = "patPastMedicalHistory_tab",joinColumns = @JoinColumn(name = "patPastMedicalHistory_fk_col"))
+    private Set<String> patPastMedicalHistory;
     @Column(name = "patOtherDetails_col")
     private String patOtherDetails;
 }
