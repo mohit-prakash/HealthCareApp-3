@@ -3,6 +3,7 @@ package com.mps.service;
 import com.mps.entity.Doctor;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IDoctorService {
 
@@ -11,5 +12,5 @@ public interface IDoctorService {
     Long addDoctor(Doctor doctor);
     Long updateDoctor(Doctor doctor);
     void deleteDoctorById(Long docId);
-
+    Map<Long,String> getDocIdAndDocName();
 }

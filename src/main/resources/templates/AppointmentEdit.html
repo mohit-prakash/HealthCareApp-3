@@ -30,9 +30,11 @@
                     <div class="col-3">
                         <label for="appDoctor">Doctor</label>
                     </div>
-                    <!-- // TODO: Need to update after AppointmentRegister page -->
                     <div class="col-5">
-                        <input type="text" th:field="*{appDoctor}" class="form-control">
+                        <select name="appDoctor.docId" th:field="*{appDoctor}" class="form-control">
+                            <option value="">-SELECT-</option>
+                            <option th:each="ob:${doctors}" th:text="${ob.value}" th:value="${ob.key}"></option>
+                        </select>
                     </div>
                     <div class="col-4">
                         <span id="appDoctorError"></span>
@@ -43,9 +45,8 @@
                     <div class="col-3">
                         <label for="appDate">Date</label>
                     </div>
-                    <!-- // TODO: Need to update after AppointmentRegister page -->
                     <div class="col-5">
-                        <input type="text" th:field="*{appDate}" class="form-control">
+                        <input type="date" th:field="*{appDate}" class="form-control">
                     </div>
                     <div class="col-4">
                         <span id="appDateError"></span>
