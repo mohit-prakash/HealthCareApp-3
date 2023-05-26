@@ -1,6 +1,6 @@
 package com.mps.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
