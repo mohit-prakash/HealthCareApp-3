@@ -2,8 +2,9 @@ package com.mps.entity;
 
 import javax.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "appointment_tab")
@@ -17,7 +18,9 @@ public class Appointment {
     @JoinColumn(name = "appDoctor_fk_col")
     private Doctor appDoctor;
     @Column(name = "appDate_col")
-    private LocalDate appDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @Temporal(TemporalType.DATE)
+    private Date appDate;
     @Column(name = "appSlots_col")
     private Integer appSlots;
     @Column(name = "appDetails_col")
