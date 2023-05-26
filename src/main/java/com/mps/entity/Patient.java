@@ -37,6 +37,7 @@ public class Patient {
     private String patCommunicationAddress;
     @ElementCollection
     @CollectionTable(name = "patPastMedicalHistory_tab",joinColumns = @JoinColumn(name = "patPastMedicalHistory_fk_col"))
+    @Column(name = "patPastMedicalHistory_col")
     private Set<String> patPastMedicalHistory;
     @Column(name = "patOtherDetails_col")
     private String patOtherDetails;
