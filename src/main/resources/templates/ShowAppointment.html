@@ -1,0 +1,30 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<div th:replace="fragments/commonUi :: header"></div>
+<body>
+<div th:replace="fragments/commonUi :: menu"></div>
+<div class="container">
+    <div class="card-header bg-primary text-white text-center">
+        <h1>View Appointments</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <tr>
+                <th>SNo.</th>
+                <th>Date</th>
+                <th>No. of Slots</th>
+                <th>Fee</th>
+                <th>Operation</th>
+            </tr>
+            <tr th:each="ob,i:${appointments}">
+                <!-- i is metadata having {index = 0, count = 1, size = 2, current = [Ljava.lang.Object;@45a50c3}  -->
+                <td th:text="${i.count}"></td>
+                <td th:text="${ob[0]}"></td>
+                <td th:text="${ob[1]}"></td>
+                <td th:text="${ob[2]}"></td>
+                <td><a href="" class="btn btn-success">Book Req</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
