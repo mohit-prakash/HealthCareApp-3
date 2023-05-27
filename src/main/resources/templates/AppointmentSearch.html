@@ -39,7 +39,7 @@
           <td th:text="${ob.specialization.specName}"></td>
           <td th:text="${ob.docMobile}"></td>
           <td th:text="${ob.docNote}"></td>
-          <td><a class="btn btn-success">Book Slot</a></td>
+          <td><a th:href="@{/app/view(docId=${ob.docId})}" class="btn btn-success">View Appointment</a></td>
         </tr>
       </table>
     </div>

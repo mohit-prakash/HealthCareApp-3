@@ -10,4 +10,5 @@ public interface IAppointmentService {
     Appointment getAppointmentById(Long appId);
     List<Appointment> getAllAppointments();
     void deleteAppointmentById(Long appId);
+    List<Object[]> getAppointmentByDocId(Long docId);
 }

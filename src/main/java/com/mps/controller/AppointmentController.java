@@ -102,4 +102,13 @@ public class AppointmentController {
         }
         return "AppointmentSearch";
     }
+
+    @GetMapping("/view")
+    public String viewAppointments(@RequestParam Long docId,Model model){
+        List<Object[]> appointments = service.getAppointmentByDocId(docId);
+        model.addAttribute("appointments",appointments);
+        String docName = docService.getDoctorById(docId).getDocName();
+        model.addAttribute("message","Result is showing for Dr. "+docName);
+        return "ShowAppointment";
+    }
 }

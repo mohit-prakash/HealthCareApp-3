@@ -37,4 +37,9 @@ public class AppointmentServiceImpl implements IAppointmentService {
     public void deleteAppointmentById(Long appId) {
         repo.delete(getAppointmentById(appId));
     }
+
+    @Override
+    public List<Object[]> getAppointmentByDocId(Long docId) {
+        return repo.getAppointmentByDocId(docId);
+    }
 }
