@@ -13,4 +13,5 @@ public interface IDoctorService {
     Long updateDoctor(Doctor doctor);
     void deleteDoctorById(Long docId);
     Map<Long,String> getDocIdAndDocName();
+    List<Doctor> getDocBySpecId(Long specId);
 }
