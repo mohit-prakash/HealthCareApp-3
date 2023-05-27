@@ -1,0 +1,49 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<div th:replace="fragments/commonUi :: header"></div>
+<body>
+  <div th:replace="fragments/commonUi :: menu"></div>
+  <div class="container">
+    <div class="card-header bg-primary text-white text-center">
+      <h1>Search Appointments</h1>
+    </div>
+    <div class="card-body">
+      <form th:action="@{/app/search}" method="get">
+        <div class="row">
+          <div class="col-2">
+            <label for="specId">Specialization</label>
+          </div>
+          <div class="col-4">
+            <select name="specId" id="specId" class="form-control">
+              <option value="0">View All Doctors</option>
+              <option th:each="ob:${specializations}" th:value="${ob.key}" th:text="${ob.value}"></option>
+            </select>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-info">Search</button>
+          </div>
+        </div>
+      </form>
+      <div th:text="${message}"></div>
+      <table class="table table-hover">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Specialization</th>
+          <th>Mobile</th>
+          <th>Note</th>
+          <th>Operation</th>
+        </tr>
+        <tr th:each="ob:${doctors}">
+          <td th:text="${ob.docName}"></td>
+          <td th:text="${ob.docEmailId}"></td>
+          <td th:text="${ob.specialization.specName}"></td>
+          <td th:text="${ob.docMobile}"></td>
+          <td th:text="${ob.docNote}"></td>
+          <td><a class="btn btn-success">Book Slot</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

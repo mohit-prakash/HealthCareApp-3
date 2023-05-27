@@ -68,4 +68,9 @@ public class DoctorServiceImpl implements IDoctorService {
     public Map<Long, String> getDocIdAndDocName() {
         return new CollectionUtil().convertObjectArrayToMap(repo.getDocIdAndDocName());
     }
+
+    @Override
+    public List<Doctor> getDocBySpecId(Long specId) {
+        return repo.getDoctorBySpecId(specId);
+    }
 }
