@@ -26,12 +26,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pat/add","/pat/save").permitAll()
                 .antMatchers("/pat/all").hasAuthority(UserRoles.ADMIN.name())
                 .antMatchers("/doc/**").hasAuthority(UserRoles.ADMIN.name())
+                .antMatchers("/spec/**").hasAuthority(UserRoles.ADMIN.name())
+                .antMatchers("/app/add","/app/save").hasAuthority(UserRoles.ADMIN.name())
+                .antMatchers("/app/search").hasAnyAuthority(UserRoles.PATIENT.name(),UserRoles.ADMIN.name())
 
                 .anyRequest().authenticated()
 
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/spec/all")
+                .defaultSuccessUrl("/pat/add")
 
                 .and()
                 .logout();
