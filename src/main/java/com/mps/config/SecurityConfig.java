@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Deprecated
@@ -29,14 +30,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/spec/**").hasAuthority(UserRoles.ADMIN.name())
                 .antMatchers("/app/add","/app/save").hasAuthority(UserRoles.ADMIN.name())
                 .antMatchers("/app/search").hasAnyAuthority(UserRoles.PATIENT.name(),UserRoles.ADMIN.name())
-
+                .antMatchers("/user/login","/login").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
                 .formLogin()
+                .loginPage("/user/login")
+                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/pat/add")
+                .failureUrl("/user/login?error=true")
 
                 .and()
-                .logout();
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/user/login?logout=true");
     }
 }
