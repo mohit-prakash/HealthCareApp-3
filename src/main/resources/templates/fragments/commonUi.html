@@ -54,16 +54,16 @@
             </li>
 <!--            Patient End-->
 <!--            Appointment Start-->
-            <li class="nav-item dropdown" sec:authorize="hasAuthority('ADMIN')">
+            <li class="nav-item dropdown" sec:authorize="hasAnyAuthority('ADMIN','PATIENT')">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Appointment
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/app/add}">Add Appointment</a>
+                    <a class="dropdown-item" th:href="@{/app/add}" sec:authorize="hasAuthority('ADMIN')">Add Appointment</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" th:href="@{/app/all}">All Appointments</a>
+                    <a class="dropdown-item" th:href="@{/app/all}" sec:authorize="hasAuthority('ADMIN')">All Appointments</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" th:href="@{/app/search}">Search Appointments</a>
+                    <a class="dropdown-item" th:href="@{/app/search}" sec:authorize="hasAnyAuthority('PATIENT','ADMIN')">Search Appointments</a>
                 </div>
             </li>
 <!--            Appointment End-->
