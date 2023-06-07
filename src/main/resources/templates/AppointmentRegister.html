@@ -29,7 +29,8 @@
                         <label for="appDate">Date</label>
                     </div>
                     <div class="col-5">
-                        <input type="date" name="appDate" id="appDate" class="form-control">
+                        <input type="text" name="appDate" id="appDate" class="form-control datepicker" autocomplete="off" readonly>
+                    <!-- readonly, since user can not enter it by typing-->
                     </div>
                     <div class="col-4">
                         <span id="appDateError"></span>
@@ -80,5 +81,10 @@
             <span th:text="${message}"></span>
         </div>
     </div>
+    <script>
+        $(".datepicker").datepicker({
+            startDate : new Date()
+        })
+    </script>
 </body>
 </html>

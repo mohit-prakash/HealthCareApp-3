@@ -18,7 +18,7 @@ public class Appointment {
     @JoinColumn(name = "appDoctor_fk_col")
     private Doctor appDoctor;
     @Column(name = "appDate_col")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
     @Temporal(TemporalType.DATE)
     private Date appDate;
     @Column(name = "appSlots_col")
