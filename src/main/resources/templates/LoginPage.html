@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<div th:replace="fragments/commonUi :: header"></div>
+<body>
+    <div class="container">
+        <div class="card-header bg-info text-white text-center">
+            <h1>Login Page</h1>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/login}" method="post">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" id="username" name="username" class="form-control">
+                    </div>
+                    <div class="col-4">
+                        <span id="usernameError"></span>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="password" id="password" name="password" class="form-control">
+                    </div>
+                    <div class="col-4">
+                        <span id="passwordError"></span>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-white">
+            <div th:if="${param.error}"><h6>Invalid Credential</h6></div>
+            <div th:if="${param.logout}"><h6>Logout Success</h6></div>
+        </div>
+    </div>
+</body>
+</html>
